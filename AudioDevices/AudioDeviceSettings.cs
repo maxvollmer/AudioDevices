@@ -11,5 +11,6 @@ namespace AudioDevices
         }
         public AudioSwitchToDefaultDeviceMode SwitchToDefaultDeviceMode { get; set; } = AudioSwitchToDefaultDeviceMode.Always;
         public string SelectedAudioDevice { get; set; } = "";
+        public int CheckAudioDevicesInterval { get; set; } = 10;
     }
 }

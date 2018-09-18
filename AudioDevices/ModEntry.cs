@@ -141,13 +141,14 @@ namespace AudioDevices
         {
             while (doTheThing)
             {
-                Thread.Sleep(10);
+                Thread.Sleep(Math.Max(10, mod.Settings.CheckAudioDevicesInterval));
                 AudioEngine audioEngine = new AudioEngine(Path.Combine(Game1.game1.Content.RootDirectory, "XACT", "FarmerSounds.xgs"));
                 lock (rendererDetailsLock)
                 {
                     rendererDetails.Clear();
                     rendererDetails.AddRange(audioEngine.RendererDetails);
                 }
+                audioEngine.Dispose();
             }
         }
 
